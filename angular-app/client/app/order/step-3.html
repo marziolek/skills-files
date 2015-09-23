@@ -1,0 +1,21 @@
+<!-- step 3 -->
+<section id="step-3">
+  <header>Payment</header>
+
+  <div>
+    <label for="cardNumber">Card number</label>
+    <input type="text" ng-model="order.payment.number" id="cardNumber" ui-mask="9999-9999-9999-9999" required />
+  </div>
+  <div>
+    <label for="name">Card holder name</label>
+    <input type="text" id="name" ng-model="order.payment.name" ng-value="order.person.fullname" required />
+  </div>
+  <div>
+    <label for="cvv">CVV code</label>
+    <input type="text" id="cvv" ng-model="order.payment.cvv" required />
+  </div>
+</section>
+
+<h1>{{order.datetime}}</h1>
+
+<button type="button" id="submit" ng-click="createOrder()">Submit</button>

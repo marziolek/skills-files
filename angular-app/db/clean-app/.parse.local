@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "clean-app"
+    },
+    "clean-app": {
+      "applicationId": "6Aasbh5dY2JRKgdPv9PD4R2IC5OIj9H59Nhoaifa"
+    }
+  }
+}

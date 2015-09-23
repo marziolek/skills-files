@@ -1,0 +1,9 @@
+<div ui-view>
+  <div ng-if="username">
+    <h1>Hello, {{username}}</h1>
+    <h2>Details for order #{{orderId}}</h2>
+    <p>Ordered at: {{orderTime}}</p>
+
+    <a ui-sref="order-details.edit">Edit</a>
+  </div>
+</div>

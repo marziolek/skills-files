@@ -1,0 +1,20 @@
+<div class="navbar" ng-controller="NavbarCtrl">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand">clean-app</a>
+    </div>
+    <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav">
+        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+            <a ng-href="{{item.link}}">{{item.title}}</a>
+        </li>
+        <li>
+          <button ng-click="changeLanguage('pl')">Polski</button>
+        </li>
+        <li>
+          <button ng-click="changeLanguage('en')">English</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

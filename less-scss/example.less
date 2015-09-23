@@ -1,0 +1,201 @@
+@import "_variables.less";
+@import "mixins.less";
+
+header {
+    position: relative;
+    z-index: 200;
+    padding: 0 .6em;
+    background-color: black;
+    .translate3d(0, 0, 0);
+}
+
+category-header {
+    width: 100%;
+    max-width: 81em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 160px;
+    background-color: black;
+    li:first-child{
+        text-transform: uppercase;
+    }
+    @media screen {
+        @media (max-width: @mediaMaxMobile) {
+            height: auto;
+        }
+    }
+}
+
+.top-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+    background: black;
+    padding: 0;
+    -webkit-backface-visibility: hidden;
+    .transition(all, .3s);
+    > .navigation-wrapper {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.navigation-mobile {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-header {
+    position: relative;
+    width: 100%;
+    height: @navBarHeight;
+    color: white;
+    overflow: hidden;
+    > ul {
+        display: none;
+        list-style-type: none;
+        @media (min-width: @mediaMaxMobile)  {
+            position: absolute;
+            right: 0;
+            display: block;
+            height: 2.7em;
+            margin-right: 1.7em;
+        }
+        > li {
+            @media (min-width: @mediaMaxMobile) {
+                display: inline-block;
+                float: left;
+            }
+        }
+    }
+}
+
+.navigation-menu-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 3em;
+    height: @navBarHeight;
+    cursor: pointer;
+    background: url('../images/icons/icon-menu.png') left center no-repeat;
+    border: none;
+    &:hover {
+        opacity: 0.5;
+    }
+    &.is-opened {
+        background: url('../images/icons/icon-menu-close.png') left center no-repeat;
+    }
+}
+
+.navigation-logo {
+	position: absolute;
+	z-index: 0;
+	width: 100%;
+	height: @navBarHeight;
+	text-align: center;
+	> a {
+		display: inline-block;
+		width: 200px;
+		height: 3.5em;
+		background-repeat: no-repeat;
+	}
+}
+.navigation-flight,
+.navigation-search {
+    padding: 0;
+    height: 2em;
+    width: 1.7em;
+    position: absolute;
+    z-index: 4;
+    border: none;
+    @media (max-width: @mediaMaxMobile) {
+        display: none;
+    }
+}
+
+.navigation-flight {
+    display: none;
+    right: 4em;
+    background: url('../../images/backgrounds/plane-top.png') no-repeat center;
+}
+
+.navigation-search {
+    right: 1.7em;
+    background: url('../../images/icons/icon-search.png') no-repeat center;
+    background-size: 85%;
+	background-color: transparent;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.navigation-favourite {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 1.7em;
+    height: @navBarHeight - 10;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    margin-top: .5em;
+    > span {
+        display: block;
+        width: auto;
+        position: absolute;
+        top: 0;
+        line-height: 2em;
+        right: 2em;
+        @media screen {
+            @media (max-width: @mediaMaxMobile)  {
+                display: none;
+            }
+        }
+    }
+    .navigation-favourite-empty {
+        display: block;
+        position: absolute;
+        right: 0;
+        width: 2em;
+        height: 1.5em;
+        margin-top: -1em;
+        top: 50%;
+        z-index: 0;
+        background-repeat: no-repeat;
+    }
+    @media (max-width: @mediaMaxMobile) {
+        width: 1.2em;
+    }
+    @media (min-width: @mediaMaxMobile) {
+        position: static;
+        float: right;
+        height: 3.2em;
+        > .navigation-favourite-empty {
+            margin: 0;
+            top: 50%;
+            margin-top: -1em;
+        }
+    }
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.navigation-favorite-pulsate-img {
+    position: absolute;
+    margin-top: -1em;
+    margin-left: .5em;
+    top: 50%;
+    width: 2em;
+    height: 2em;
+    .transition();
+    opacity: 0;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}

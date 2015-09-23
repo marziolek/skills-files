@@ -1,0 +1,65 @@
+<div ui-view>
+  <!-- step 1 -->
+  <section id="step-1">
+    <header>Select your service</header>
+    <select name="type" id="type" ng-model="order.type" required>
+      <option value="45">Up to 45 m<sup>2</sup></option>
+      <option value="65">Up to 65 m<sup>2</sup></option>
+      <option value="85">Up to 85 m<sup>2</sup></option>
+      <option value="105">Up to 105 m<sup>2</sup></option>
+      <option value="105+">Over 105 m<sup>2</sup></option>
+    </select>
+    <!-- extras -->
+    <div>
+      <label for="fridge">Inside fridge cleaning</label>
+      <input type="checkbox" id="fridge" name="fridge" ng-model="order.extras.fridge" required />
+    </div>
+    <div>
+      <label for="dishes">Dish washing</label>
+      <input type="checkbox" id="dishes" name="dishes" ng-model="order.extras.dishes" required />
+    </div>
+    <div>
+      <label for="toilet">Toilet paper</label>
+      <input type="checkbox" id="toilet" name="toilet" ng-model="order.extras.toilet" required />
+    </div>
+    <!-- /extras -->
+  </section>
+  <!-- /step 1 -->
+
+</div>
+<!-- steps navigation -->
+<ul>
+  <li>
+    <a ui-sref="order">Step 1</a>
+  </li>
+  <li>
+    <a ui-sref="order.step-2">Step 2</a>
+  </li>
+  <li>
+    <a ui-sref="order.step-3">Step 3</a>
+  </li>
+</ul>
+<!-- /steps navigation -->
+
+<div class="order-progress-wrapper">
+  <p>Apartment/house size:</p>
+  <ul>
+    <li ng-if="order.type">
+      <p>{{order.type}}</p>
+    </li>
+  </ul>
+  <p>Extras:</p>
+  <ul>
+    <li ng-repeat="(extra, isPicked) in order.extras" ng-if="isPicked">
+      <p>{{extra}}</p>
+    </li>
+  </ul>
+  <p>Personal data</p>
+  <ul>
+    <li ng-repeat="(personalData, data) in order.person" ng-if="data">
+      <p>{{data}}</p>
+    </li>
+  </ul>
+</div>
+
+<button ng-click="sendMail()">Send mail</button>

@@ -1,0 +1,33 @@
+<!-- step 2 -->
+<section id="step-2">
+  <header>Where should we clean?</header>
+  <div>
+    <label for="fullname">Full name</label>
+    <input type="text" id="fullname" name="fullname" ng-model="order.person.fullname" required />
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" ng-model="order.person.email" required />
+  </div>
+  <div>
+    <label for="street">Street</label>
+    <input type="text" id="street" name="street" ng-model="order.person.street" required />
+  </div>
+  <div>
+    <label for="streetNumber">Number</label>
+    <input type="text" id="streetNumber" name="streetNumber" ng-model="order.person.streetNumber" required />
+  </div>
+  <div>
+    <label for="apartment">Apartment no.</label>
+    <input type="text" id="apartment" name="apartment" ng-model="order.person.apartment" required />
+  </div>
+  <div>
+    <label for="city">City</label>
+    <input type="text" id="city" name="city" ng-model="order.person.city" required />
+  </div>
+</section>
+<section>
+  <div date-picker="order.datetime" view="month"></div>
+  <span ng-if="order.datetime">{{order.datetime}}</span>
+</section>
+<!-- /step 2 -->
